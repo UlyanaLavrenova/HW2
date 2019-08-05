@@ -94,9 +94,10 @@ for N in range(1000, 5001, 1000):
 
     table.add_row([str(N), str((t2-t1).total_seconds()), str((t4-t3).total_seconds()), str((t6-t5).total_seconds())])
 print(table)
-plt.plot(x, y1, "C0")
-plt.plot(x, y2, "C1")
-plt.plot(x, y3, "C5")
+plt.plot(x, y1, "C0", label='InsertSort')
+plt.plot(x, y2, "C1", label='MergeSort')
+plt.plot(x, y3, "C5", label='QuickSort')
+plt.legend()
 plt.show()
 
 
