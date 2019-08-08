@@ -5,17 +5,16 @@ import matplotlib.pyplot as plt
 
 
 def InsertSort (A):
-    B = A.copy()
-    for i in range(len(B)):
-        t = B[i]
+    for i in range(len(A)):
+        t = A[i]
         j = i
         while j != 0:
-            if B[j-1] > t:
-                B[j] = B[j-1]
+            if A[j-1] > t:
+                A[j] = A[j-1]
                 j -= 1
             else:
                 break
-        B[j] = t
+        A[j] = t
     #print(B)
 
 
@@ -76,6 +75,8 @@ for N in range(1000, 5001, 1000):
     A = []
     for i in range (N):
         A.append(int(round(random.random()*(max-min)+min)))
+    B = A.copy()
+    C = A.copy()
 
     t1 = datetime.datetime.now()
     InsertSort(A)
@@ -83,12 +84,12 @@ for N in range(1000, 5001, 1000):
     y1.append((t2-t1).total_seconds())
 
     t3 = datetime.datetime.now()
-    MergeSort(A)
+    MergeSort(B)
     t4 = datetime.datetime.now()
     y2.append((t4-t3).total_seconds())
 
     t5 = datetime.datetime.now()
-    QuickSort(A, 0, len(A)-1)
+    QuickSort(C, 0, len(C)-1)
     t6 = datetime.datetime.now()
     y3.append((t6-t5).total_seconds())
 
